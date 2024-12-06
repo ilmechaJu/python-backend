@@ -17,6 +17,18 @@ def generate_access_token(user_id):
     token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
     return token
 
+def generate_refresh_token(user_id):
+    """
+    Refresh Token 발행
+    """
+    payload = {
+        'user_id': user_id,
+        'exp': datetime.datetime.utcnow() + datetime.timedelta(days=7),  # 7일 유효
+        'iat': datetime.datetime.utcnow()
+    }
+    token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
+    return token
+
 def verify_access_token(token):
     """
     JWT Access Token 검증

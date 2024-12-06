@@ -129,3 +129,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/accounts/login/'
 
 LOGIN_REDIRECT_URL = '/myapp/protected/'  # 로그인 성공 후 리디렉션할 URL
+
+AUTH_USER_MODEL = 'myapp.CustomUser'
